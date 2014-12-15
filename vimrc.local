@@ -24,8 +24,8 @@ func SetTitle()
 	else 
 		call setline(1, "/*************************************************************************") 
 		call append(line("."), "	> File Name: ".expand("%")) 
-		call append(line(".")+1, "	> Author: ") 
-		call append(line(".")+2, "	> Mail: ") 
+		call append(line(".")+1, "	> Author: @wrj") 
+		call append(line(".")+2, "	> Mail: wrjvszq@163.com") 
 		call append(line(".")+3, "	> Created Time: ".strftime("%c")) 
 		call append(line(".")+4, " ************************************************************************/") 
 		call append(line(".")+5, "")
@@ -96,7 +96,12 @@ func! Runmake()
 	exec "!make"
 endfunc
 
-
+"C,C++的clean
+map <F10> :call Runclean()<CR>
+func! Runclean()
+	exec "w"
+	exec "!make clean"
+endfunc
 "代码格式优化化
 
 map <F7> :call FormartSrc()<CR><CR>
